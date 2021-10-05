@@ -26,9 +26,12 @@
             {% include "partials/_cardevent.html.twig" with {'event': event} %}
 
         {% endfor %}
-        <a class="btn btn-primary" href="/events/add">Ajouter un event</a>
     </div>
-
+    <div class="row">
+        <div class="col-md-2 col-md-offset-5 mx-auto">
+            <a class="btn btn-primary" href="/events/add">Ajouter un event</a>
+        </div>
+    </div>
 
 
 {% endblock %}
