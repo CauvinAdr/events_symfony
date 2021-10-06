@@ -53,6 +53,39 @@ class EventController extends AbstractController
     }
 
     /**
+     * @Route("/events/{event}/update", name="event_update")
+     */
+    public function update(Event $event, Request $request, EntityManagerInterface $entityManager)
+    {
+        $updateEventForm = $this->createForm(EventType::class, $event);
+
+        $updateEventForm->handleRequest($request);
+
+        if($updateEventForm->isSubmitted() && $updateEventForm->isValid()) {
+            $entityManager->flush();
+        }
+
+        return $this->render('event/update.html.twig', [
+            'updateEventForm' => $updateEventForm->createView(),
+            'eventName' => $event->getName()
+        ]);
+    }
+
+    /**
+     * @Route("/events/{event}/delete", name="event_delete")
+     */
+    public function delete(Event $event, EntityManagerInterface $entityManager)
+    {
+        $deleteMessage = $event->getName() . ' a bien été supprimé !';
+        $entityManager->remove($event);
+        $entityManager->flush();
+
+        $this->addFlash('success', $deleteMessage);
+
+        return $this->redirectToRoute('event');
+    }
+
+    /**
      * @Route("/events/{event}", name="event_show")
      */
     public function show(Event $event)

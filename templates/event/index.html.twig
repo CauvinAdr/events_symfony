@@ -20,6 +20,14 @@
         </ul>
     </div>
 
+    <hr>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
     <div class="row">
         {% for event in allEvents %}
 
@@ -28,10 +36,9 @@
         {% endfor %}
     </div>
     <div class="row">
-        <div class="col-md-2 col-md-offset-5 mx-auto">
-            <a class="btn btn-primary" href="/events/add">Ajouter un event</a>
+        <div class="col-2 d-flex justify-content-center mx-auto">
+            <a class="btn btn-primary mx-auto" href="/events/add">Add an event</a>
         </div>
     </div>
-
 
 {% endblock %}
