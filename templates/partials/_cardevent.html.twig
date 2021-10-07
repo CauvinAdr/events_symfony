@@ -5,8 +5,10 @@
                 <p>{{ event.name }}</p>
             </div>
             <div class="col-6">
-                {% if is_granted('ROLE_CONTRIBUTOR') %}
-                    <a href="{{ path('event_participation') }}" class="badge bg-secondary">Participation</a>
+                {% if profil is not defined %}
+                    <a href="{{ path('event_participation', {'event': event.id}) }}" class="badge bg-secondary">Participation</a>
+                {% else %}
+                    <a href="{{ path() }}" class="badge bg-secondary">Evaluer</a>
                 {% endif %}
             </div>
         </div>

@@ -113,7 +113,7 @@ class EventController extends AbstractController
 
         if($eventParticipationForm->isSubmitted() && $eventParticipationForm->isValid()) {
             $participation = $eventParticipationForm->getData();
-            
+
             $entityManager->persist($participation);
             $entityManager->flush();
         }
