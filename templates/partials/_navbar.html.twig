@@ -16,7 +16,7 @@
                     <a class="nav-link" href="/events">Events</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/artist">Prices</a>
+                    <a class="nav-link" href="/profile">Profil</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/category">Categories</a>
@@ -33,9 +33,10 @@
                 </li>
             </ul>
             {% if app.user %}
-                <a class="btn btn-secondary my-2 mx-2" href="/logout">Disconnect</a>
+                <a class="btn btn-secondary my-2 mx-2" href="{{ path('app_logout') }}">Disconnect</a>
             {% else %}
-                <a class="btn btn-secondary my-2 mx-2" href="/login">Connect</a>
+                <a class="btn btn-secondary my-2 mx-2" href="{{ path('app_login') }}">Connect</a>
+                <a class="btn btn-secondary my-2 mx-2" href="{{ path('register') }}">S'enregistrer</a>
             {% endif %}
             <form class="d-flex">
                 <input class="form-control me-sm-2" type="text" placeholder="Search">

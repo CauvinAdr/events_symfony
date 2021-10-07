@@ -15,4 +15,15 @@
             <p>{{ event.description }}</p>
         </div>
     </div>
+
+    <div class="row">
+        <h2>Evaluations</h2>
+        {% for evaluation in evaluations %}
+            <div class="col-3 mx-auto">
+                {{ evaluation.comment }}
+                Note : {{ evaluation.rate }}
+            </div>
+        {% endfor %}
+        <p></p>
+    </div>
 {% endblock %}

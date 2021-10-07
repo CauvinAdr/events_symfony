@@ -16,7 +16,7 @@
         This friendly message is coming from:
         <ul>
             <li>Your controller at <code><a href="{{ '/Users/a_cauvin/Desktop/CEFIM/Symfony/exercice_cours/holacine/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-            <li>Your template at <code><a href="{{ '/Users/a_cauvin/Desktop/CEFIM/Symfony/exercice_cours/holacine/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
+            <li>Your template at <code><a href="{{ '/Users/a_cauvin/Desktop/CEFIM/Symfony/exercice_cours/holacine/templates/home/register.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
         </ul>
     </div>
 
@@ -35,10 +35,13 @@
 
         {% endfor %}
     </div>
-    <div class="row">
-        <div class="col-2 d-flex justify-content-center mx-auto">
-            <a class="btn btn-primary mx-auto" href="/events/add">Add an event</a>
+
+    {% if is_granted('ROLE_CONTRIBUTOR') %}
+        <div class="row">
+            <div class="col-2 d-flex justify-content-center mx-auto">
+                <a class="btn btn-primary mx-auto" href="/events/add">Add an event</a>
+            </div>
         </div>
-    </div>
+    {% endif %}
 
 {% endblock %}
