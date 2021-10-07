@@ -6,6 +6,7 @@ use App\Entity\Event;
 use App\Form\EventType;
 use App\Repository\EventRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,6 +29,7 @@ class EventController extends AbstractController
 
     /**
      * @Route("/events/add", name="event_add")
+     * @IsGranted("ROLE_CONTRIBUTOR")
      */
     public function add(Request $request, EntityManagerInterface $entityManager)
     {

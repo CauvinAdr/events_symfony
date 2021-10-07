@@ -11,12 +11,16 @@
                 <div class="col-4">
                     <a href="{{ path('event_show', {'event': event.id}) }}" class="badge bg-success">Details</a>
                 </div>
-                <div class="col-4">
-                    <a class="badge rounded-pill bg-danger" href="/events/{{ event.id }}/delete">Delete</a>
-                </div>
-                <div class="col-4">
-                    <a class="badge rounded-pill bg-info" href="/events/{{ event.id }}/update">Update</a>
-                </div>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <div class="col-4">
+                        <a class="badge rounded-pill bg-danger" href="/events/{{ event.id }}/delete">Delete</a>
+                    </div>
+                {% endif %}
+                {% if is_granted('ROLE_CONTRIBUTOR') %}
+                    <div class="col-4">
+                        <a class="badge rounded-pill bg-info" href="/events/{{ event.id }}/update">Update</a>
+                    </div>
+                {% endif %}
             </div>
 
             </img>
