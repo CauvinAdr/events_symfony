@@ -8,7 +8,7 @@
                 {% if profil is not defined %}
                     <a href="{{ path('event_participation', {'event': event.id}) }}" class="badge bg-secondary">Participation</a>
                 {% else %}
-                    <a href="{{ path() }}" class="badge bg-secondary">Evaluer</a>
+                    <a href="{{ path('event_evaluate', {'event': event.id}) }}" class="badge bg-secondary">Evaluer</a>
                 {% endif %}
             </div>
         </div>
